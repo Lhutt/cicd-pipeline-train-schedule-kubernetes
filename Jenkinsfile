@@ -1,3 +1,4 @@
+  
 pipeline {
     agent any
     environment {
@@ -45,9 +46,9 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                kubernetesDeploy (
-                    kubeConfigId: 'kubeconfig'
-                    configs: 'train-schedule-kube-config.yml',
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig',
+                    configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
                 )
             }
